@@ -1,0 +1,118 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Glassy UI */
+.glass-container,
+.glass-card,
+.glass-header {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Landing Page */
+.landing .glass-container {
+  max-width: 600px;
+}
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+.cta-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  transition: 0.3s ease;
+}
+.cta-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Blog Page */
+.blog {
+  align-items: stretch;
+  padding: 2rem 1rem;
+}
+.glass-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.subtitle {
+  color: #ccc;
+  font-weight: 300;
+  margin-top: 0.5rem;
+}
+.post-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.post-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.post-excerpt {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+.read-more {
+  font-weight: bold;
+  color: #fff;
+  border-bottom: 1px solid white;
+  padding-bottom: 2px;
+}
+.read-more:hover {
+  color: #aaa;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .post-container {
+    grid-template-columns: 1fr;
+  }
+}
