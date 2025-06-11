@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HashIQ Blog</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body class="blog">
   <header class="glass-header">
@@ -12,20 +13,22 @@
     <p class="subtitle">Where trends and intelligence meet</p>
   </header>
 
-  <main class="post-container">
-    <section class="post glass-card">
-      <h2 class="post-title">Why Hashtags Matter in 2025</h2>
-      <p class="post-excerpt">Discover how hashtags can supercharge your content strategy this year...</p>
-      <a href="#" class="read-more">Read More →</a>
-    </section>
-
-    <section class="post glass-card">
-      <h2 class="post-title">How to Go Viral on YouTube with Smart Tags</h2>
-      <p class="post-excerpt">Master the art of tagging and see your videos climb the charts...</p>
-      <a href="#" class="read-more">Read More →</a>
-    </section>
-
-    <!-- Add more posts as needed -->
+  <main class="post-container" id="posts">
+    <!-- Markdown posts will be inserted here dynamically -->
   </main>
-</body>
-</html>
+
+  <script>
+    const markdownFiles = ['posts/test.md', 'posts/intro.md'];
+
+    async function loadPosts() {
+      const container = document.getElementById('posts');
+      for (const file of markdownFiles) {
+        try {
+          const res = await fetch(file);
+          const md = await res.text();
+          const html = marked.parse(md);
+          const section = document.createElement('section');
+          section.className = 'post glass-card';
+          section.innerHTML = html;
+          container.appendChild(section);
+        } c
